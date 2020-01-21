@@ -14,8 +14,8 @@ public class MenuGame implements Screen {
     MainGame game;
 
     private OrthographicCamera orthographicCamera;
-    private Texture wallpaperMenuGame, startButton, exitButton;
-    private Sprite spriteWallpaperMenuGame, spriteStartButton, spriteExitButton;
+    private Texture wallpaperMenuGame, startButton, exitButton, posterMainMenu;
+    private Sprite spriteWallpaperMenuGame, spriteStartButton, spriteExitButton, spritePosterMainMenu;
     private BitmapFont bitmapFontMainMenu;
 
 
@@ -37,7 +37,7 @@ public class MenuGame implements Screen {
         startButton = new Texture(Gdx.files.internal("StartButton.png"));
         spriteStartButton = new Sprite(startButton);
         spriteStartButton.setSize(175,175);
-        spriteStartButton.setPosition(Gdx.graphics.getWidth() * 0.2f, Gdx.graphics.getHeight() * 0.5f);
+        spriteStartButton.setPosition(Gdx.graphics.getWidth() * 0.2f, Gdx.graphics.getHeight() * 0.4f);
 
         exitButton = new Texture(Gdx.files.internal("ExitButton.png"));
         spriteExitButton = new Sprite(exitButton);
@@ -46,7 +46,10 @@ public class MenuGame implements Screen {
 
         bitmapFontMainMenu = new BitmapFont(Gdx.files.internal("FontMainMenu.fnt"), Gdx.files.internal("FontMainMenu.png"), false);
 
-        game.bitmapFont = new BitmapFont();
+        posterMainMenu = new Texture(Gdx.files.internal("CartelMainMenu.png"));
+        spritePosterMainMenu = new Sprite(posterMainMenu);
+        spritePosterMainMenu.setSize(450,150);
+        spritePosterMainMenu.setPosition(Gdx.graphics.getWidth() * 0.02f, Gdx.graphics.getHeight() * 0.75f);
 
     }
 
@@ -74,7 +77,8 @@ public class MenuGame implements Screen {
     spriteWallpaperMenuGame.draw(game.spriteBatch);
     spriteStartButton.draw(game.spriteBatch);
     spriteExitButton.draw(game.spriteBatch);
-    bitmapFontMainMenu.draw(game.spriteBatch,"Catch The Fish", Gdx.graphics.getWidth() * 0.1f, Gdx.graphics.getHeight() * 0.9f);
+    spritePosterMainMenu.draw(game.spriteBatch);
+    bitmapFontMainMenu.draw(game.spriteBatch,"To fish !", Gdx.graphics.getWidth() * 0.3f, Gdx.graphics.getHeight() * 0.9f);
     game.spriteBatch.end();
 
     }
