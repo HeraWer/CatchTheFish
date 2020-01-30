@@ -7,7 +7,11 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector3;
 import com.jovac.catchthefish.MainGame;
+
+import java.awt.Menu;
 
 public class MenuGame implements Screen {
 
@@ -173,6 +177,20 @@ public class MenuGame implements Screen {
     bitmapFontMainMenu.draw(game.spriteBatch,"To fish !", Gdx.graphics.getWidth() * 0.3f, Gdx.graphics.getHeight() * 0.9f);
     game.spriteBatch.end();
 
+
+        if (Gdx.input.isTouched()) {
+            Vector3 tmp=new Vector3(Gdx.input.getX(),Gdx.input.getY(), 0);
+            orthographicCamera.unproject(tmp);
+            Rectangle textureStartButton= new Rectangle(spriteStartButton.getX(),spriteStartButton.getY(),spriteStartButton.getWidth(),spriteStartButton.getHeight());
+            Rectangle textureExitButton= new Rectangle(spriteExitButton.getX(),spriteExitButton.getY(),spriteExitButton.getWidth(),spriteExitButton.getHeight());
+            if(textureStartButton.contains(tmp.x,tmp.y)) {
+                game.setScreen(new CatchTheFish(game));
+            }
+            if(textureExitButton.contains(tmp.x,tmp.y)) {
+                dispose();
+            }
+        }
+
     }
 
     @Override
@@ -197,6 +215,5 @@ public class MenuGame implements Screen {
 
     @Override
     public void dispose() {
-
     }
 }
