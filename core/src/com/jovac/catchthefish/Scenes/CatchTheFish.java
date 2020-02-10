@@ -16,8 +16,10 @@ public class CatchTheFish extends ApplicationAdapter implements Screen {
     MainGame game;
 
     OrthographicCamera orthographicCamera;
-    private Texture wallpaperGame, boat, fisher, sand;
-    private Sprite spriteWallpaperGame, spriteBoat, spriteFisher, spriteSand;
+    private Texture wallpaperGame, boat, fisher, sand,
+            fishPiñaraGame, fishRareGame, fishPayasoGame;
+    private Sprite spriteWallpaperGame, spriteBoat, spriteFisher, spriteSand,
+            spriteFishPiñaraGame, spriteFishRareGame, spriteFishPayasoGame;
 
     public CatchTheFish(MainGame game) {
         this.game = game;
@@ -36,6 +38,9 @@ public class CatchTheFish extends ApplicationAdapter implements Screen {
         spriteWallpaperGame = new Sprite(wallpaperGame);
         spriteWallpaperGame.setSize(480, 500);
 
+        /*
+            Ponemos cada textura asociado a un sprite para a si poder manejar si posicion, flip y su medida
+         */
         boat = new Texture(Gdx.files.internal("spriteBoat.png"));
         spriteBoat = new Sprite(boat);
         spriteBoat.setSize(175,175);
@@ -46,6 +51,21 @@ public class CatchTheFish extends ApplicationAdapter implements Screen {
         spriteFisher =  new Sprite(fisher);
         spriteFisher.setSize(130,130);
         spriteFisher.setPosition(Gdx.graphics.getWidth() * 0.58f, Gdx.graphics.getHeight() * 0.55f);
+
+        fishPiñaraGame = new Texture(Gdx.files.internal("fishGame1.png"));
+        spriteFishPiñaraGame =  new Sprite(fishPiñaraGame);
+        spriteFishPiñaraGame.setSize(130,130);
+        spriteFishPiñaraGame.setPosition(Gdx.graphics.getWidth() * 0.58f, Gdx.graphics.getHeight() * 0.55f);
+
+        fishRareGame = new Texture(Gdx.files.internal("fishGame2.png"));
+        spriteFishRareGame =  new Sprite(fishRareGame);
+        spriteFishRareGame.setSize(130,130);
+        spriteFishRareGame.setPosition(Gdx.graphics.getWidth() * 0.58f, Gdx.graphics.getHeight() * 0.55f);
+
+        fishPayasoGame = new Texture(Gdx.files.internal("fishGame3.png"));
+        spriteFishPayasoGame =  new Sprite(fishPayasoGame);
+        spriteFishPayasoGame.setSize(130,130);
+        spriteFishPayasoGame.setPosition(Gdx.graphics.getWidth() * 0.58f, Gdx.graphics.getHeight() * 0.55f);
 
         /*sand = new Texture(Gdx.files.internal("spriteSand.png"));
         spriteSand = new Sprite(sand);

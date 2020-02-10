@@ -215,5 +215,6 @@ public class MenuGame implements Screen {
 
     @Override
     public void dispose() {
+        game.spriteBatch.end();
     }
 }
